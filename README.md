@@ -3,7 +3,8 @@
 # Roll A Die And Code
 
 <!--Badges here-->
-[![Netlify Status](https://api.netlify.com/api/v1/badges/7bce20f8-2c4d-4370-a504-81cc89641c2e/deploy-status)](https://app.netlify.com/sites/rolladieandcode/deploys)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d009b077-55f4-4bce-a9e2-38bb63c3d38f/deploy-status)](https://app.netlify.com/sites/rolladieandcode/deploys)
 
 Because I'm a big fan of problem solving and I am always looking for new problems and new platforms to increase my skills, I thought about putting an app to generate a platform so you can simply go there, click on a button and a random platform is generated for you!
 
