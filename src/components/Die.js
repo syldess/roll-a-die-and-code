@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Cube from './rotating-cube/cube/Cube';
 import { codingSites } from '../data/coding-sites';
 
-function Die() {
+function Die(props) {
   const [sites] = useState(codingSites);
-  const [chosenSiteTitle, setChosenSiteTitle] = useState('?')
-  const [chosenSiteUrl, setChosenSiteUrl] = useState('#')
+  const [chosenSiteTitle, setChosenSiteTitle] = useState(props.diePlaceholder)
+  const [chosenSiteUrl, setChosenSiteUrl] = useState(props.dieDefaultUrl)
   
   const customBackground = {
     front: 'hsla(120, 100%, 10%, .60)',
