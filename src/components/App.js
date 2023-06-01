@@ -4,19 +4,8 @@ import Die from './Die';
 
 class App extends Component {
   state = {
-    cursorVisible: true,
-    speed: 500,
+    diePlaceholder: "?",
   };
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({
-        cursorVisible: !this.state.cursorVisible,
-      });
-    }, this.state.speed);
-  }
-  componentWillUnmount() {
-    clearInterval();
-  }
 
   render() {
     return (
@@ -26,15 +15,7 @@ class App extends Component {
             backgroundColor: '#000',
           }}
         >
-          <h2>
-            >roll_a_die_and_code()
-            <span
-              id="blinkingCursor"
-              style={{ opacity: this.state.cursorVisible ? 0 : 1 }}
-            >
-              |
-            </span>
-          </h2>
+          <h2>>roll_a_die_and_code()</h2>
           <div
             style={{
               width: '250px',
@@ -50,9 +31,8 @@ class App extends Component {
               textAlign: 'center',
             }}
           >
-            <p>Want to solve some problems?</p>
-            <p>Too Many Choices?</p>
-            <Die placeholder={this.state.placeholderDice} />
+            <p>Want to tackle some coding problems?</p>
+            <Die />
           </div>
         </div>
       </>

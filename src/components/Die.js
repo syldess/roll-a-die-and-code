@@ -1,30 +1,34 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Cube from './rotating-cube/cube/Cube';
 import { codingSites } from '../data/coding-sites';
 
-class Die extends Component {
-  state = {
-    sites: codingSites,
-    chosenSite: {
-      title: '?',
-      url: '',
-    },
+function Die() {
+  const [sites] = useState(codingSites);
+  const [chosenSiteTitle, setChosenSiteTitle] = useState('?')
+  const [chosenSiteUrl, setChosenSiteUrl] = useState('#')
+  
+  const customBackground = {
+    front: 'hsla(120, 100%, 10%, .60)',
+    right: 'hsla(120, 100%, 10%, .60)',
+    back: 'hsla(120, 100%, 10%, .60)',
+    left: 'hsla(120, 100%, 10%, .60)',
+    top: 'hsla(120, 100%, 10%, .60)',
+    bottom: 'hsla(120, 100%, 10%, .60)',
   };
 
-  getSite = () => {
-    const randomChoice = Math.floor(Math.random() * this.state.sites.length);
-    return this.state.sites[randomChoice];
+  const getSite = () => {
+    console.log(sites);
+    const randomChoice = Math.floor(Math.random() * sites.length);
+    return sites[randomChoice];
   };
 
-  fetchSite = () => {
-    const newSite = this.getSite();
-    this.setState({
-      ...this.state,
-      chosenSite: { ...newSite },
-    });
+  const fetchSite = () => {
+    const newSite = getSite();
+    setChosenSiteTitle(newSite.title);
+    setChosenSiteUrl(newSite.url);
   };
 
-  renderFaces = () => {
+  const renderFaces = () => {
     return {
       front: '',
       right: '',
@@ -35,27 +39,17 @@ class Die extends Component {
     };
   };
 
-  render() {
-    return (
-      <div>
-        <Cube
-          customBackground={customBackground}
-          faces={this.renderFaces()}
-          fetchSite={this.fetchSite}
-          site={this.state.chosenSite.title}
-          url={this.state.chosenSite.url}
-        />
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Cube
+        customBackground={customBackground}
+        faces={renderFaces()}
+        fetchSite={fetchSite}
+        siteTitle={chosenSiteTitle}
+        siteUrl={chosenSiteUrl}
+      />
+    </div>
+  );
 }
 
-const customBackground = {
-  front: 'hsla(120, 100%, 10%, .60)',
-  right: 'hsla(120, 100%, 10%, .60)',
-  back: 'hsla(120, 100%, 10%, .60)',
-  left: 'hsla(120, 100%, 10%, .60)',
-  top: 'hsla(120, 100%, 10%, .60)',
-  bottom: 'hsla(120, 100%, 10%, .60)',
-};
 export default Die;
