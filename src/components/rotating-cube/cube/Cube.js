@@ -59,7 +59,7 @@ const Cube = (props) => {
                 className={`cube__face cube__face--${face}`}
                 style={{ background: getStyle(`${face}`) }}
               >
-                <a href={props.siteUrl}>
+                <a href={props.siteUrl} target="blank">
                   {faceToShow === face ? props.siteTitle : '?'}
                 </a>
             </div>                
